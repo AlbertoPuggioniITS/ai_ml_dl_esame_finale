@@ -1,3 +1,4 @@
+# importazione delle librerie necessarie
 import pandas as pd
 import sqlite3
 import requests

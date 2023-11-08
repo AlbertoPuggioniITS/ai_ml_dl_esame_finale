@@ -54,6 +54,8 @@ class WineData(BaseModel):
 # Gestisce l'apertura e la chiusura del db dopo l'operazione + messaggio di errore se non c'è la connessione al db
 # Implementata la raise Exception qualora non sia possibile recuperare i record
 
+from fastapi import HTTPException
+
 @app.get("/get_wine/")
 async def get_wine(fixed_acidity: float, volatile_acidity: float, citric_acid: float, residual_sugar: float, chlorides: float,
                    free_sulfur_dioxide: float, density: float, pH: float, sulphates: float, alcohol: float,
@@ -90,9 +92,6 @@ async def get_wine(fixed_acidity: float, volatile_acidity: float, citric_acid: f
         raise HTTPException(status_code=500, detail="Internal Server Error")
     finally:
         connection.close()
-
-
-
 
 
 # API Get - Operazione per recuperare i dati del vino in base alla colonna 'quality'
@@ -136,7 +135,6 @@ async def get_wine_by_quality(quality: int):
         raise HTTPException(status_code=500, detail="Internal Server Error")
     finally:
         connection.close()
-
 
 
 # API Get - Operazione che recupera i dati in base alla colonna 'type'
@@ -185,10 +183,6 @@ async def get_wine_by_type(type: int):
         connection.close()
 
 
-
-
-
-
 # API Post - Crea un nuovo record da inserire nel db
 # Crea nuovo record inserendo tutti i parametri in JSON
 @app.post("/create_wine/")
@@ -213,9 +207,6 @@ async def create_wine(wine: WineData):
         connection.close()
 
 
-
-
-
 # API Put - Aggiorna un record esistente nel db
 @app.put("/update_wine/")
 async def update_wine(wine: WineData):
@@ -233,9 +224,6 @@ async def update_wine(wine: WineData):
         return HTTPException(status_code=500, detail="Internal Server Error")
     finally:
         connection.close()
-
-
-
 
 
 # API Delete - Cancella un record presente nel db
