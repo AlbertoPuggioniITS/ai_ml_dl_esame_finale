@@ -2,13 +2,13 @@
 # Tutti i path sono riferiti alla macchina con la quale è stata sviluppata l'applicazione
 
 
-# Importazione delle librerie necessarie
+
 # Per mantenere un certo ordine generale nel progetto, ho deciso di modularizzare, per quanto possibile, tutto il codice.
-# Ho quindi deciso di evitare di importare tutte le api (del modello e del db) nel file main.py ed ho considerato il main.py come route principale per far partire tutte le api
-# Ho pertanto importato le api come modello in maniera tale da lanciare contemporaneamente i due file api.py instradandole in due porte differenti per non creare problemi
-# Così facendo si può lanciare il server uvicorn direttamente dal file main.py della cartella principale (senza che si debba andare sulla cartella specifica per far partire uvicorn)
+# Ho quindi deciso di evitare di importare tutte le api (del modello e del db) nel file main.py ed ho considerato il main.py come modulo principale per gestire le route dei file api
+# Ho pertanto importato le api come moduli, in maniera tale che eseguendo il main.py tutte le API venissero esposte senza dover spostarsi nella cartella in cui sono contenuti i rispettivi file api.py
 # Il comando è --> uvicorn main:app --reload
 
+# Importazione delle librerie necessarie
 from fastapi import FastAPI
 from uvicorn import run
 from modello.api import app as model_app
