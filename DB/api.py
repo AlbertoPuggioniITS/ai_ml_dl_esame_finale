@@ -38,13 +38,6 @@ class WineData(BaseModel):
     best_quality: int = Field(..., ge=0, le=1)
 
 
-
-
-# # # Spostarsi nella cartella db
-# # far partire uvicorn --> uvicorn api:app --host 0.0.0.0 --port 8000
-#  Swagger --> http://0.0.0.0:8000/docs#/
-
-
 # ========== #
 #   API's    #
 # ========== #

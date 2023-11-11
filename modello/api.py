@@ -1,8 +1,3 @@
-# Spostarsi nella cartella modello
-#  uvicorn api:app --host 0.0.0.0 --port 8000
-
-# Swagger per il testing dell'API -->  http://0.0.0.0:8000/docs#/
-
 # Importazione delle librerie necessarie
 import joblib
 from fastapi import FastAPI
