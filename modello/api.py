@@ -46,7 +46,7 @@ def predict_wine_quality(input_data: WineQualityPredictionInput):
     # Predizione: 0 pessima qualità, 1 ottima qualità
     if len(input_features) == 11:
         prediction = model.predict([input_features])
-        return {"Predizione: "
-                "[0: pessima qualità / 1: ottima qualità]": prediction.tolist()}
+        return {"Model's prediction: "
+                "[0: bad quality / 1: best quality]": prediction.tolist()}
     else:
-        return {"Errore": "Il numero delle features in input non corrispondono a quelle del modello addestrato"}
+        return {"Error": "The number of the selected features does not match with the trained model's features"}
