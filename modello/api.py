@@ -49,4 +49,4 @@ def predict_wine_quality(input_data: WineQualityPredictionInput):
         return {"Predizione: "
                 "[0: pessima qualità / 1: ottima qualità]": prediction.tolist()}
     else:
-        return {"Errore": "Il numero di features nell'input non corrisponde al modello addestrato."}
+        return {"Errore": "Il numero delle features in input non corrispondono a quelle del modello addestrato"}
