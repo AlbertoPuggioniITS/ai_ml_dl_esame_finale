@@ -41,12 +41,7 @@ def predict_wine_quality(input_data: WineQualityPredictionInput):
         input_data.quality
     ]
 
-    # Previsioni utilizzando il modello
-    # Ulteriore check per controllare che l'utente inserisca solo gli input utili al modello
-    # Predizione: 0 pessima qualità, 1 ottima qualità
-    if len(input_features) == 11:
-        prediction = model.predict([input_features])
-        return {"Model's prediction: "
-                "[0: bad quality / 1: best quality]": prediction.tolist()}
-    else:
-        return {"Error": "The number of the selected features does not match with the trained model's features"}
+# Previsioni utilizzando il modello
+# Predizione: 0 pessima qualità, 1 ottima qualità
+    prediction = model.predict([input_features])
+    return {"Model's prediction: " "[0: bad quality / 1: best quality] ": prediction.tolist()}
