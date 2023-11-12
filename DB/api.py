@@ -46,6 +46,7 @@ class WineData(BaseModel):
 # Parametri: tutti
 # Gestisce l'apertura e la chiusura del db dopo l'operazione + messaggio di errore se non c'è la connessione al db
 # Implementata la raise Exception qualora non sia possibile recuperare i record
+# Ho deciso di richiedere tutti i parametri per ottenere un determinato record per evitare la possibilità di incorrere in errori
 
 @app.get("/get_wine/")
 async def get_wine(fixed_acidity: float, volatile_acidity: float, citric_acid: float, residual_sugar: float, chlorides: float,
